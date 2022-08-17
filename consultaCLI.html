@@ -1,0 +1,472 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dommatos</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body ng-app="dommatos">
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header_start  -->
+    <!-- <header>
+        <div class="header-area ">
+            <div class="header-top_area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-8">
+                            <div class="short_contact_list">
+                                <ul>
+                                    <li><a href="#">+880 4664 216</a></li>
+                                    <li><a href="#">Mon - Sat 10:00 - 7:00</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-4 ">
+                            <div class="social_media_links">
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-pinterest-p"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-3">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="img/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-9">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a  href="index.html">home</a></li>
+                                        <li><a href="about.html">about</a></li>
+                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="single-blog.html">single-blog</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="elements.html">elements</a></li>
+                                                
+                                            </ul>
+                                        </li>
+                                        <li><a href="service.html">services</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>-->
+    <!-- header_start  -->
+
+    <!-- bradcam_area_start -->
+
+    <div ng-controller="customersCtrl">
+
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <label for="date-start">Mes</label>
+
+                    <select name="#" id="mesFactura" class="form-control">
+                        <option value="01">Enero</option>
+                        <option value="02">Febrero</option>
+                        <option value="03">Marzo</option>
+                        <option value="04">Abril</option>
+                        <option value="05">Mayo</option>
+                        <option value="06">Junio</option>
+                        <option value="07">Julio</option>
+                        <option value="08">Agosto</option>
+                        <option value="09">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <label for="date-start">año</label>
+
+                    <select name="#" id="anioFactura" class="form-control">
+
+                        <option value="2021">2021</option>
+
+                    </select>
+                </div>
+            </div>
+            <br>
+            <button type="button" class="btn btn-danger" ng-click="consultaMesNoPago()">No Pagos</button>
+            <button type="button" class="btn btn-primary" ng-click="consultaMesPago()">Ya Pagos</button>
+            <button type="button" class="btn btn-default" ng-click="consultaClientes()">Todos</button>
+            <button type="button" class="btn btn-success" ng-click="consultaClientes()" id="whatsappMessage"> <i
+                    class="fa fa-whatsapp"> </i> Mensaje</button>
+                    <br>
+            <label for="date-start">Total Pago</label>
+            <h1>{{totalPay}}</h1>
+
+
+            <div class="section-top-border">
+
+                <h3 class="mb-30">Vista Clientes</h3>
+                <input class="form-control" type="search" id="findName" ng-model='SearchCiudad'
+                    placeholder="Busqueda Ciudad">
+                <br>
+                <div class=" progress-table-wrap">
+                    <div class="sortable progress-table">
+                        <div class="table-head">
+                            <div class="serial">#</div>
+                            <div class="country">Cedula</div>
+                            <div class="country">Nombre</div>
+                            <div class="country">Telefono Ppal</div>
+                            <div class="country">Ciudad</div>
+                            <div class="country">Ver Mas</div>
+                            <div class="country">Ver Pagos</div>
+                            <div class="country">Registrar Pago Mes</div>
+                        </div>
+                        <div class="table-row" ng-repeat="x in clientes | filter : {direccion: SearchCiudad}">
+                            <div class="serial">{{ $index + 1 }}</div>
+                            <div class="country"> {{x.cedulaCliente}}</div>
+                            <div class="country">{{x.nombreCliente}}</div>
+                            <div class="country">{{x.telefonoPpal}}</div>
+                            <div class="country">{{x.direccion}}</div>
+                            <div class="country button-group-area mt-40">
+                                <a data-toggle="modal" data-target="#registroUsuarioModel"
+                                    data-cedula={{x.cedulaCliente}} data-nombre={{x.nombreCliente}}
+                                    data-tel1={{x.telefonoPpal}} data-tel2={{x.telefonoOpc}}
+                                    data-creacion={{x.fechaCreacion}} data-direccion={{x.direccion}}
+                                    data-plan={{x.plan}} data-ip={{x.ip}} data-ppoe={{x.ppoe}}
+                                    data-descripcion={{x.descripcion}} data-nodo={{x.nodo}} 
+                                    data-valorPlan={{x.pago}}
+                                    class="genric-btn info circle image-popup">Más</a>
+
+                            </div>
+                            <div class="country button-group-area mt-40">
+                                <a data-toggle="modal" data-target="#verPagoModel" data-cedula={{x.cedulaCliente}}
+                                    data-nombre={{x.nombreCliente}}
+                                    class="genric-btn warning circle image-popup">Ver</a>
+                            </div>
+                            <div class="country button-group-area mt-40">
+                                <a data-toggle="modal" data-target="#registroPagoModel" data-cedula={{x.cedulaCliente}}
+                                    data-nombre={{x.nombreCliente}}
+                                    class="genric-btn danger circle image-popup image-popup">Pagar</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="modal fade" id="registroUsuarioModel" tabindex="-1" role="form"
+                aria-labelledby="registroUsuarioModelLabel" aria-hidden="true" style="overflow-y: scroll;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cedulaUsuario"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="date-start">Nombre</label>
+                                    <input type="text" id="nombreUsuario" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="date-start">Telefono Principal</label>
+                                    <input type="tel" id="telPpal" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="date-start">Telefono Opcional</label>
+                                    <input type="tel" id="telOpc" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="date-start">Plan</label>
+                                    <select name="#" id="planUsuario" class="form-control">
+                                        <option value="1">4 Mbps</option>
+                                        <option value="2">6 Mbps</option>
+                                        <option value="3">8 Mbps</option>
+                                        <option value="4">10 Mbps</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="date-start">IP</label>
+                                    <input type="tel" id="dirIP" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="date-start">PPOE</label>
+                                    <input type="tel" id="dirPPOE" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="date-start">Dirección Usuario</label>
+                                    <input type="text" id="dirUser" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="date-start">Descripción</label>
+                                    <textarea type="text" id="descripcionUsuario" name="message" id="message" cols="30"
+                                        rows="3" class="form-control"></textarea>
+
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="date-start">Nodo</label>
+                                    <input type="text" id="nodo" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="date-start">Valor Plan</label>
+                                    <input type="text" id="valorPlan" class="form-control">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary"
+                                onClick="registroUsuario();">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="registroPagoModel" tabindex="-1" role="form"
+                aria-labelledby="registroPagoModelLabel" aria-hidden="true" style="overflow-y: scroll;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cedulaUsuario"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12">
+                                <label for="date-start">Mes</label>
+
+                                <select name="#" id="mesFacturaPago" class="form-control">
+                                    <option value="01">Enero</option>
+                                    <option value="02">Febrero</option>
+                                    <option value="03">Marzo</option>
+                                    <option value="04">Abril</option>
+                                    <option value="05">Mayo</option>
+                                    <option value="06">Junio</option>
+                                    <option value="07">Julio</option>
+                                    <option value="08">Agosto</option>
+                                    <option value="09">Septiembre</option>
+                                    <option value="10">Octubre</option>
+                                    <option value="11">Noviembre</option>
+                                    <option value="12">Diciembre</option>
+                                </select>
+                            </div>
+
+
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="date-start">Factura</label>
+                                    <input type="text" id="facturaPago" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label for="date-start">Valor Pagado</label>
+                                    <input type="text" id="valorPagado" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary" onClick="registroPago();">Pagar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="verPagoModel" tabindex="-1" role="form" aria-labelledby="verPagoModelLabel"
+                aria-hidden="true" style="overflow-y: scroll;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+                            <div class="section-top-border">
+                                <h3 class="mb-30">Pagos Registrados</h3>
+                                <div class="progress-table-wrap">
+                                    <div class="progress-table">
+                                        <div class="table-head">
+                                            <div class="serial">#</div>
+                                            <div class="country">Fecha</div>
+                                            <div class="country">Factura</div>
+                                            <div class="country">Valor Pago</div>
+
+
+                                        </div>
+                                        <div class="table-row" ng-repeat="x in Pagos">
+                                            <div class="serial">{{ $index + 1 }}</div>
+                                            <div class="country"> {{x.fechaPago|date:'MMMM, yyyy'}}</div>
+                                            <div class="country">{{x.factura}}</div>
+                                            <div class="country">{{x.valorPago}}</div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="bordered_1px"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center">
+                        <p>
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | Dommatos
+                            SAS <i class="ti-heart" aria-hidden="true"></i> by <a href="" target="_blank">Dommatos</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </footer>
+        <!-- footer_end  -->
+
+        <!-- JS here -->
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/isotope.pkgd.min.js"></script>
+        <script src="js/ajax-form.js"></script>
+        <script src="js/waypoints.min.js"></script>
+        <script src="js/jquery.counterup.min.js"></script>
+        <script src="js/imagesloaded.pkgd.min.js"></script>
+        <script src="js/scrollIt.js"></script>
+        <script src="js/jquery.scrollUp.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/nice-select.min.js"></script>
+        <script src="js/jquery.slicknav.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/gijgo.min.js"></script>
+
+        <!--contact js-->
+        <script src="js/contact.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="js/jquery.form.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/mail-script.js"></script>
+
+
+        <script src="js/main.js"></script>
+        <script src="js/dommatos/clientes.js"></script>
+        <script async="" type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpI7mPk4RcjQLmGaavYNWyvBN3aZ6wUCQ&libraries=places&callback=initMap"
+            defer></script>
+        <script>
+            $('#datepicker').datepicker({
+                iconsLibrary: 'fontawesome',
+                disableDaysOfWeek: [0, 0],
+                //     icons: {
+                //      rightIcon: '<span class="fa fa-caret-down"></span>'
+                //  }
+            });
+            $('#datepicker2').datepicker({
+                iconsLibrary: 'fontawesome',
+                icons: {
+                    rightIcon: '<span class="fa fa-caret-down"></span>'
+                }
+
+            });
+            var timepicker = $('#timepicker').timepicker({
+                format: 'HH.MM'
+            });
+        </script>
+</body>
+
+</html>
